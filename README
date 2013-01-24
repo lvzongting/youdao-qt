@@ -9,4 +9,8 @@ $qmake
 $make
 $./youdao-qt
 
+TODO
+add select words from mouse
+reconstruct UI
+
 Power by lvzongting@gmail.com 
