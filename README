@@ -1,0 +1,12 @@
+A simple Qt GUI front end for youdao dictionary.
+
+fork from https://github.com/jl2/Google-Translate-Qt-GUI
+
+Released under the open source GPL2.0 license.
+
+How to use
+$qmake 
+$make
+$./youdao-qt
+
+Power by lvzongting@gmail.com 
