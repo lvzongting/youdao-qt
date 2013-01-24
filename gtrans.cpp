@@ -101,6 +101,9 @@ void GTrans::fillInLanguages() {
 GTrans::GTrans() {
     QLayout *mainLayout = new QVBoxLayout;
 
+    //lzt QTextcode modify for Utf8
+    QTextCodec::setCodecForTr(QTextCodec::codecForLocale());
+    QTextCodec::setCodecForCStrings( QTextCodec::codecForLocale());
     // The input section
     QLayout *top = new QHBoxLayout;
     QBoxLayout *tl = new QVBoxLayout;
@@ -125,7 +128,6 @@ GTrans::GTrans() {
     bl->addWidget(toLang);
     bl->addStretch();
     bottom->addItem(bl);
-    QTextCodec::setCodecForTr(QTextCodec::codecForLocale());   //lzt QTextcode modify
     outputTxt = new QTextEdit;
     outputTxt->setReadOnly(true);
     bottom->addWidget(outputTxt);
@@ -189,10 +191,10 @@ void GTrans::finishedSlot(QNetworkReply* reply) {
     if (reply->error() == QNetworkReply::NoError) {
 
 //      outputTxt->setPlainText(tr(reply->readAll()));
-        outputTxt->setHtml(tr(reply->readAll()));
+//      outputTxt->setHtml(tr(reply->readAll()));
 //lzt2
         // Find the translated string - this is a bit of a hack, but works and is easier than parsing the HTML...
-/*      QRegExp rx(tr("input type=hidden name=gtrans value=\"(.*)\"><div id=sug_exp>"));
+//      QRegExp rx(tr("input type=hidden name=gtrans value=\"(.*)\"><div id=sug_exp>"));
         QRegExp rx(tr("<div id=\"phrsListTab\" class=\"trans-wrapper clearfix\">(.*)</div>"));
         QString rep(reply->readAll());
         rep.replace("\n", " ");
@@ -210,7 +212,7 @@ void GTrans::finishedSlot(QNetworkReply* reply) {
             outputTxt->setPlainText(tr("Could not find translated string in result..."));
 //lzt3
         }
-*/
+
     } else {
         outputTxt->setPlainText(tr("A network error occured."));
     }
