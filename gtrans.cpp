@@ -195,7 +195,7 @@ void GTrans::finishedSlot(QNetworkReply* reply) {
 //lzt2
         // Find the translated string - this is a bit of a hack, but works and is easier than parsing the HTML...
 //      QRegExp rx(tr("input type=hidden name=gtrans value=\"(.*)\"><div id=sug_exp>"));
-        QRegExp rx(tr("<div id=\"phrsListTab\" class=\"trans-wrapper clearfix\">(.*)</div>"));
+        QRegExp rx(tr("<div id=\"phrsListTab\" class=\"trans-wrapper clearfix\">(.*)<div id=\"ads\" class=\"ads\">"));
         QString rep(reply->readAll());
         rep.replace("\n", " ");
 
