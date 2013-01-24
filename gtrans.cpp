@@ -163,7 +163,7 @@ void GTrans::doTrans() {
     // Figure out the URL for translate.google.com
     QStringList words = inputTxt->toPlainText().split(QRegExp("\\s+"));
     //QString gtUrl = tr("https://translate.google.com/translate_t?langpair=%1|%2&text=").arg(languages[fromLang->currentText()]).arg(languages[toLang->currentText()]) + words.join("+");
-    QString gtUrl = tr("http://dict.youdao.com/search?q=") + words.join("+");
+    QString gtUrl = tr("http://dict.youdao.com/search?q=") + words.join(" ");
 //  outputTxt->setPlainText(gtUrl);
 //lzt1
     QUrl url(gtUrl);
