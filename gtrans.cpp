@@ -24,6 +24,8 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QClipboard>
+#include <unistd.h>
+
 
 GTrans::GTrans() {
 
@@ -124,7 +126,10 @@ void GTrans::doTrans() {
     // Go back to the text input
 //    inputTxt->selectAll();
 //    inputTxt->setFocus();
+    sleep(1);
+    outputTxt->selectAll();
     outputTxt->setFocus();
+
 }
 
 void GTrans::finishedSlot(QNetworkReply* reply) {
