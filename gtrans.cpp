@@ -126,7 +126,7 @@ void GTrans::doTrans() {
     // Go back to the text input
 //    inputTxt->selectAll();
 //    inputTxt->setFocus();
-    usleep(450000);
+    usleep(500000);
     outputTxt->selectAll();
     outputTxt->setFocus();
 
