@@ -64,7 +64,7 @@ GTrans::GTrans() {
 //    bottom->addItem(bl);
 //    mainLayout->addWidget(outLabel);                //lzt add
     outputTxt = new QTextEdit;
-    outputTxt->setReadOnly(true);
+//    outputTxt->setReadOnly(true);
 //    bottom->addWidget(outputTxt);
     mainLayout->addWidget(outputTxt);               //lzt add
 
@@ -102,7 +102,7 @@ void GTrans::doTrans() {
 //lzt clipboard
     QClipboard *clipboard = QApplication::clipboard();
     QStringList words = clipboard->text(QClipboard::Selection).split(QRegExp("\\s+"));
-//    inputTxt->setPlainText(words.join(" "));
+    outputTxt->setPlainText(words.join(" "));
 //
 
     //QString gtUrl = tr("https://translate.google.com/translate_t?langpair=%1|%2&text=").arg(languages[fromLang->currentText()]).arg(languages[toLang->currentText()]) + words.join("+");
@@ -127,7 +127,7 @@ void GTrans::doTrans() {
 //    inputTxt->selectAll();
 //    inputTxt->setFocus();
     usleep(500000);
-    outputTxt->selectAll();
+//    outputTxt->selectAll();
     outputTxt->setFocus();
 
 }
@@ -156,12 +156,13 @@ void GTrans::finishedSlot(QNetworkReply* reply) {
             // Display the results
             outputTxt->setHtml(tmp);
         } else {
-            outputTxt->setPlainText(tr("Could not find translated string in result..."));
+//            outputTxt->setPlainText(tr("Could not find translated string in result..."));
+            outputTxt->append(tr("Could not find translated string in result..."));
 //lzt3
         }
 
     } else {
-        outputTxt->setPlainText(tr("A network error occured."));
+        outputTxt->append(tr("A network error occured."));
     }
 
     // Schedule old network stuff for deletion
