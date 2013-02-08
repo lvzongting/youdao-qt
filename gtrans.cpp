@@ -34,7 +34,8 @@ GTrans::GTrans() {
     QTextCodec::setCodecForCStrings( QTextCodec::codecForLocale());
 
     //Layout
-    QLayout *mainLayout = new QVBoxLayout;
+//    QLayout *mainLayout = new QVBoxLayout;
+    QLayout *mainLayout = new QStackedLayout;
 
     // The input section
 //    QLayout *top = new QHBoxLayout;
@@ -63,10 +64,10 @@ GTrans::GTrans() {
 //    bl->addStretch();
 //    bottom->addItem(bl);
 //    mainLayout->addWidget(outLabel);                //lzt add
-    outputTxt = new QTextEdit;
+      outputTxt = new QTextEdit;
 //    outputTxt->setReadOnly(true);
 //    bottom->addWidget(outputTxt);
-    mainLayout->addWidget(outputTxt);               //lzt add
+      mainLayout->addWidget(outputTxt);               //lzt add
 
 //    mainLayout->addItem(top);
 //    mainLayout->addItem(bottom);
